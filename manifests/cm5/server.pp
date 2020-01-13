@@ -285,7 +285,7 @@ class cloudera::cm5::server (
   }
 
   @exec { 'scm_prepare_database':
-    command => "/usr/share/cmf/schema/scm_prepare_database.sh ${db_type} ${scmopts} --user=${db_user} --password=${db_pass} ${database_name} ${username} ${password} && touch /etc/cloudera-scm-server/.scm_prepare_database",
+    command => "/opt/cloudera/cm/schema/scm_prepare_database.sh ${db_type} ${scmopts} --user=${db_user} --password=${db_pass} ${database_name} ${username} ${password} && touch /etc/cloudera-scm-server/.scm_prepare_database",
     creates => '/etc/cloudera-scm-server/.scm_prepare_database',
     require => $scm_prepare_database_require,
     before  => Service['cloudera-scm-server'],
