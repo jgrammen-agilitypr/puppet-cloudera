@@ -348,7 +348,7 @@ class cloudera (
     }
   }
 
-  if $cm_version =~ /^5/ {
+  if $cm_version =~ /^[5|6]/ {
     if $install_java {
       Class['cloudera::cm5::repo'] -> Class['cloudera::java5']
       class { 'cloudera::java5':
